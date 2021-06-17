@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10">
+            <br>
+            <h5>BOOKS:</h5>
+            <div class="card card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>SL/NO</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Price</th>
+                        <th>Edition</th>
+                        <th>Purchase</th>
+                        <th>Remove</th>
+                    </tr>
+                    {% for book in cart.books.all %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{book.title}} </td>
+                        <td>{{book.Author}} </td>
+                        <td>{{book.Price}} </td>
+                        <td>{{book.Edition}} </td>
+                        <th><i class="fa fa-shopping-cart" aria-hidden="true"></i></th>
+                        <th><a href="{% url 'deleteitem' id=book.id %}" ><i class="fa fa-trash"></i></a></th>
+                    </tr>
+
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
