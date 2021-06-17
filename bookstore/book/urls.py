@@ -29,3 +29,5 @@ urlpatterns = [
     path('addtocart/<str:pk>', views.addtocart, name='addtocart'),
     path('deleteitem/<int:id>', views.deleteitem, name='deleteitem'),
 ]
+
+git remote add origin https://github.com/rohithrkrishnan177/ndzbookstore
